@@ -1,5 +1,26 @@
+:root {
+    --bg-image-light:url(images/bg-coffee-light.jpg);
+    --bg-image-dark: url(images/bg-coffee-dark.jpg);
+}
+.theme-light {
+    --color-primary: burlywood;
+    --color-secondary:  #ecdfd0ee;
+    --color-accent: brown;
+    --font-color: #000000;
+    --bg-image:var(--bg-image-light);
+    
+}
+.theme-dark {
+    --color-primary: #4C3A51;
+    --color-secondary: #774360;
+    --color-accent: #B25068;
+    --font-color: #E7AB79;
+    --bg-image:var(--bg-image-dark);
+}
+
 body {
-    background-image: url(images/bg-coffee.jpg);
+    
+    background-image: var(--bg-image);
     font-family: sans-serif;
     padding: 20px;
 }
@@ -24,25 +45,26 @@ h1, h2, p {
 a {
     text-decoration: none;
     font-style: bold;
-    color: black
+    color: var(--font-color)
 }
 
 
 .menu-card {
     margin-top: 2rem;
     width: 80%;
-    background-color: burlywood;
+    background-color:var(--color-primary);
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
     max-width: 30rem;
     border-radius: 0.5rem;
+    color: var(--font-color)
 }
 
 hr {
     height: 2px;
-    background-color: brown;
-    border-color: brown;
+    background-color:var(--color-accent);
+    border-color:var(--color-accent);
 }
 .section-icons {
     width: 3rem;
@@ -52,6 +74,7 @@ hr {
     margin-right: auto;
     margin-top:-1rem;
     margin-bottom: 1rem;
+    filter:hue-rotate(90deg);
 }
 
 .item p {
@@ -76,21 +99,22 @@ hr {
     position: fixed;
     top: 50%;
     bottom: 50%;
-    color: white;
-    background-color: gray;
+    color: var(--font-color);
+    background-color: rgba(128, 128, 128, 0.5);
     border: none;
     font-size: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
     height: 4rem;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.75;
     transition: opacity 100ms;
+    
 }
   
 .slide-arrow:hover,
 .slide-arrow:focus {
-    opacity: 0.75;
+    opacity: 1;
 }
 
 #slide-arrow-prev {
@@ -110,6 +134,23 @@ hr {
 
 #footer {
     background-color: black;
+}
+
+#themeSwitcher {
+    padding: 0.5rem;
+    padding-left: 0.4rem;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    background-color: var(--color-primary);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 100ms;
+    border-radius: 0.5rem;
+
+}
+#themeSwitcher:hover {
+    opacity: 0.75;
 }
 
 /* media queries */
@@ -141,6 +182,16 @@ hr {
     #slide-arrow-next {
         right: 2rem;
     }
+    
+    #themeSwitcher {
+        padding: 0.25rem;
+        padding-left: 0.2rem;
+        position: fixed;
+        right: 0.5rem;
+        bottom: 0.5rem;
+        border-radius: 0.25rem;
+    
+    }
 }
 
 
@@ -161,6 +212,8 @@ hr {
     .toplinks {
         display: none;
     }
+
+    
 }
 @media only screen and (max-width:480px) {
     .slide-arrow {
@@ -175,4 +228,7 @@ hr {
     #slide-arrow-next {
         right: 0.25rem;
     }
+
+    
 }
+
