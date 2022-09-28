@@ -1,4 +1,4 @@
-# Design template for a cafe
+# Design template for a Cafe
 
 Using
 * Html
